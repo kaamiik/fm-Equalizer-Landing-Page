@@ -1,0 +1,196 @@
+@use "variables" as *;
+@use "breakpoints" as *;
+@use "functions" as *;
+@use "reset";
+@use "typography";
+
+.header {
+  padding: 0 rem(24);
+  padding-top: rem(40);
+
+  @include breakpoint(medium) {
+    padding: 0 rem(39);
+    padding-top: rem(62);
+  }
+
+  @include breakpoint(large) {
+    padding: 0 rem(165);
+    padding-top: rem(62);
+  }
+}
+
+.main-heading {
+  max-width: rem(580);
+  padding: rem(65) rem(24);
+  padding-bottom: rem(
+    65 + 98
+  ); /* Because the margin top of .phone-app is -98px */
+  @include flow-content(rem(20));
+
+  @include breakpoint(medium) {
+    padding: rem(100) rem(39);
+    padding-bottom: rem(
+      100 + 138
+    ); /* Because the margin top of .phone-app is -138px */
+    @include flow-content(rem(28));
+  }
+
+  @include breakpoint(large) {
+    max-width: rem(1200);
+    padding: rem(127) rem(165);
+    padding-bottom: rem(
+      213 + 108
+    ); /* Because the margin top of .phone-app is -108px */
+    @include flow-content(rem(40));
+  }
+}
+
+.premium {
+  background-image: url(/assets/bg-pattern-2.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  border-radius: rem(12);
+  display: flex;
+  flex-direction: column;
+  gap: rem(48);
+  position: relative;
+  z-index: 0;
+
+  @include breakpoint(medium) {
+    margin-inline: rem(36);
+    flex-direction: row;
+    gap: 0;
+    justify-content: center;
+    padding: rem(150) 0; /* Because There is negative margin on children elements */
+  }
+
+  @include breakpoint(large) {
+    margin-inline: rem(165);
+    background-position: top left 40%;
+    max-width: rem(1110);
+    gap: rem(155);
+  }
+}
+
+.phone-app {
+  width: 209px;
+  height: 430px;
+  margin: 0 auto;
+  margin-top: rem(-98);
+
+  @include breakpoint(medium) {
+    width: 270px;
+    height: 556px;
+    margin: 0;
+    margin-top: rem(-138 - 150); /* to compensate 150px padding on .premium  */
+    transform: translateX(14%);
+    z-index: -2;
+  }
+
+  @include breakpoint(large) {
+    width: 312px;
+    height: 642px;
+    margin-top: rem(-213 - 150); /* to compensate 150px padding on .premium  */
+    transform: revert;
+  }
+}
+
+.premium-payment {
+  max-width: rem(400);
+  padding: rem(48) rem(36);
+  border-radius: rem(12);
+  margin: 0 auto;
+  margin-bottom: rem(-326);
+
+  @include breakpoint(medium) {
+    padding: rem(48);
+    margin: 0;
+    margin-bottom: rem(-96 - 150);
+    transform: translateX(-14%);
+    z-index: -1;
+  }
+
+  @include breakpoint(large) {
+    max-width: rem(446);
+    padding: rem(58) rem(59) rem(48) rem(54);
+    margin-bottom: rem(
+      -115 - 150
+    ); /* to compensate 150px padding on .premium  */
+    transform: revert;
+  }
+
+  > p {
+    margin-top: rem(12);
+
+    @include breakpoint(large) {
+      margin-top: rem(22);
+    }
+  }
+
+  .payment {
+    margin-top: rem(36);
+    display: flex;
+    gap: rem(16);
+    align-items: center;
+
+    @include breakpoint(large) {
+      margin-top: rem(40);
+    }
+  }
+
+  .payment + .btn {
+    margin-top: rem(32);
+
+    @include breakpoint(large) {
+      margin-top: rem(46);
+    }
+  }
+
+  .btn + .btn {
+    margin-top: rem(16);
+  }
+}
+
+footer {
+  max-width: rem(1110);
+  padding: rem(64 + 326) rem(24) rem(80);
+  display: flex;
+  flex-direction: column;
+  gap: rem(32);
+
+  @include breakpoint(medium) {
+    margin-inline: rem(36);
+    padding: rem(87 + 96) 0 rem(85);
+  }
+
+  @include breakpoint(large) {
+    margin-inline: rem(165);
+    padding: rem(87 + 115) 0 rem(91);
+    flex-direction: row;
+    gap: rem(138);
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: rem(64);
+
+    .address {
+      max-width: rem(366);
+    }
+    @include breakpoint(medium) {
+      flex-direction: row;
+      flex-grow: 1;
+      gap: 0;
+    }
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: rem(24);
+    @include breakpoint(medium) {
+      margin-left: auto;
+    }
+  }
+}

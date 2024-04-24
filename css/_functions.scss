@@ -1,0 +1,26 @@
+@use "sass:math";
+
+// Source: https://css-tricks.com/snippets/sass/px-to-em-functions/
+@function rem($pixels, $context: 16) {
+  @return (math.div($pixels, $context)) * 1rem;
+}
+
+// Flow-content utility class
+$default-flow-spacer: 1rem;
+
+@mixin flow-content($flow-spacer: $default-flow-spacer) {
+  > * + * {
+    margin-top: $flow-spacer;
+  }
+}
+
+// Split utility class
+@mixin split($direction: column, $gap: 4rem) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+
+  > * {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,86 @@
+@use "variables" as *;
+@use "breakpoints" as *;
+@use "functions" as *;
+
+.page-title {
+  font-size: rem(40);
+  letter-spacing: -1px;
+
+  @include breakpoint(medium) {
+    font-size: rem(64);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem(88);
+  }
+}
+
+.section-title {
+  font-size: rem(28);
+
+  @include breakpoint(large) {
+    font-size: rem(32);
+  }
+}
+
+.text-bold {
+  font-weight: 700;
+  font-size: rem(65);
+  line-height: 0.8;
+}
+
+.text-footer {
+  font-size: rem(16);
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  gap: rem(8);
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: rem(18);
+  font-weight: 700;
+  letter-spacing: -0.18px;
+  line-height: 1.8;
+  border-radius: rem(12);
+  padding: rem(15) 0;
+}
+
+.btn-ios:hover,
+.btn-ios:focus {
+  background-color: $turquoise-blue;
+}
+
+.btn-android:hover,
+.btn-android:focus {
+  background-color: $mutedOrange;
+}
+
+/* Social Icons */
+.icon {
+  display: inline-block;
+  width: rem(25);
+  height: rem(25);
+  background-size: cover;
+}
+
+.icon-facebook {
+  background-image: url(/assets/icon-facebook.svg);
+}
+
+.icon-twitter {
+  background-image: url(/assets/icon-twitter.svg);
+  width: rem(25);
+  height: rem(21);
+}
+
+.icon-instagram {
+  background-image: url(/assets/icon-instagram.svg);
+}
+
+.icon:hover {
+  filter: invert(69%) sepia(82%) saturate(3273%) hue-rotate(325deg)
+    brightness(99%) contrast(98%);
+}
